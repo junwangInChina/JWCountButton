@@ -9,6 +9,7 @@
 #import "JWCountButton.h"
 
 #define JWONEPIXELS  (1.0/[UIScreen mainScreen].scale)
+#define JWINTEGERTOSTRING(x) [NSString stringWithFormat:@"%ld",(long)x,nil]
 
 @interface JWCountButton() <UITextFieldDelegate>
 {
@@ -106,7 +107,7 @@
         _inputTextField.keyboardType = UIKeyboardTypeNumberPad;
         _inputTextField.font = self.inputFont;
         _inputTextField.textColor = self.inputColor;
-        _inputTextField.text = [NSString stringWithFormat:@"%ld",_minValue];
+        _inputTextField.text = JWINTEGERTOSTRING(self.minValue);//[NSString stringWithFormat:@"%ld",_minValue];
         [self addSubview:_inputTextField];
     }
     return _inputTextField;
@@ -206,7 +207,7 @@
                 
             }];
         }
-        self.inputTextField.text = [NSString stringWithFormat:@"%ld",tempValue];
+        self.inputTextField.text = JWINTEGERTOSTRING(tempValue);//[NSString stringWithFormat:@"%ld",tempValue];
         
         [self callbackAndIsIncrease:YES];
 
@@ -229,7 +230,7 @@
     if (tempValue >= self.minValue)
     {
         self.inputTextField.hidden = NO;
-        self.inputTextField.text = [NSString stringWithFormat:@"%ld",tempValue];
+        self.inputTextField.text = JWINTEGERTOSTRING(tempValue);//[NSString stringWithFormat:@"%ld",tempValue];
         [self callbackAndIsIncrease:NO];
     }
     else
@@ -249,7 +250,7 @@
             }];
 
             self.inputTextField.hidden = YES;
-            self.inputTextField.text = [NSString stringWithFormat:@"%ld",self.minValue-1];
+            self.inputTextField.text = JWINTEGERTOSTRING((self.minValue-1));//[NSString stringWithFormat:@"%ld",self.minValue-1];
             
             [self callbackAndIsIncrease:NO];
             
@@ -270,7 +271,7 @@
     if ([self.inputTextField.text isNotBlank] == NO ||
         [self.inputTextField.text integerValue] < self.minValue)
     {
-        self.inputTextField.text = self.decreaseHide ? [NSString stringWithFormat:@"%ld",self.minValue-1]:tempMinValue;
+        self.inputTextField.text = self.decreaseHide ? JWINTEGERTOSTRING((self.minValue-1)) : tempMinValue;
     }
     else if ([self.inputTextField.text integerValue] > self.maxValue)
     {
@@ -321,7 +322,7 @@
         if ([self.inputTextField.text integerValue] <= self.minValue)
         {
             self.inputTextField.hidden = YES;
-            self.inputTextField.text = [NSString stringWithFormat:@"%ld",self.minValue-1];
+            self.inputTextField.text = JWINTEGERTOSTRING((self.minValue-1));//[NSString stringWithFormat:@"%ld",self.minValue-1];
             
             self.decreaseBtn.frame = CGRectMake(selfWidth-selfHeight, 0, selfHeight, selfHeight);
         }
@@ -346,7 +347,7 @@
 {
     _minValue = minValue;
     
-    self.inputTextField.text = [NSString stringWithFormat:@"%ld",minValue];
+    self.inputTextField.text = JWINTEGERTOSTRING(minValue);//[NSString stringWithFormat:@"%ld",minValue];
     self.decreaseHide = self.decreaseHide;
 }
 
@@ -431,7 +432,7 @@
         self.decreaseBtn.frame = CGRectMake(0, 0, selfHeight, selfHeight);
     }
     
-    self.inputTextField.text = [NSString stringWithFormat:@"%ld",(long)currentNumber];
+    self.inputTextField.text = JWINTEGERTOSTRING(currentNumber);//[NSString stringWithFormat:@"%ld",(long)currentNumber];
     
     [self checkInputAndUpdate];
 }
