@@ -443,7 +443,7 @@
         self.decreaseBtn.frame = CGRectMake(0, 0, selfHeight, selfHeight);
     }
     
-    self.inputTextField.text = JWINPUTTEXT(self.currentNumber);
+    self.inputTextField.text = JWINPUTTEXT(currentNumber);
     
     [self checkInputAndUpdate];
 }
