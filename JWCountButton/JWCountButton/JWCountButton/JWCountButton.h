@@ -44,6 +44,8 @@
 /** *  最大值，default 无上限 */
 @property (nonatomic, assign) NSInteger maxValue;
 
+/** *  默认展示单位，default 无，可以为$ ¥ X 等 */
+@property (nonatomic, copy) NSString *valueUnit;
 
 
 

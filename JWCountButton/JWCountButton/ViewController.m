@@ -46,6 +46,7 @@
     tempButton.minValue = 1;
     tempButton.increaseImage = [UIImage imageNamed:@"coupon_increase"];
     tempButton.decreaseImage = [UIImage imageNamed:@"coupon_decrease"];
+    tempButton.valueUnit = @"X";
     [self.view addSubview:tempButton];
     
     tempButton.valueChanged = ^(NSInteger number, BOOL isIncrease) {
@@ -61,6 +62,7 @@
 //    tempButton.minValue = 2;
     tempButton.increaseImage = [UIImage imageNamed:@"increase_eleme"];
     tempButton.decreaseImage = [UIImage imageNamed:@"decrease_eleme"];
+    tempButton.valueUnit = @"$";
     [self.view addSubview:tempButton];
     
     tempButton.valueChanged = ^(NSInteger number, BOOL isIncrease) {
@@ -74,6 +76,7 @@
     tempButton.shakeAnimation = YES;
     tempButton.maxValue = 10;
     tempButton.minValue = 2;
+    tempButton.valueUnit = @"¥";
     [self.view addSubview:tempButton];
     
     tempButton.valueChanged = ^(NSInteger number, BOOL isIncrease) {
